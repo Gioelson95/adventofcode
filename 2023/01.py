@@ -30,3 +30,26 @@ from aocd import data
 year = 2023
 day = 1
 
+
+# 1/12/2023
+
+ints = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
+
+sum_1 = 0
+sum_2 = 0
+
+with open("1-12-23.txt") as f:
+    lines = f.readlines()
+    for line in lines:
+        digits_1 = []
+        digits_2 = []
+        for i,c in enumerate(line):
+            if c.isdigit():
+                digits_1.append(c)
+                digits_2.append(c)
+            for d,val in enumerate(ints):
+                if line[i:].startswith(val): digits_2.append(str(d+1))
+        sum_1 += int(digits_1[0] + digits_1[-1])
+        sum_2 += int(digits_2[0] + digits_2[-1])
+print(sum_1)
+print(sum_2)
